@@ -660,6 +660,7 @@ function generateRandomCharacter(): Record<string, string> {
 
   const chosenOccupation = randomItem(occupation);
   return {
+    name: `${randomItem(firstNames)} ${randomItem(surnames)}`,
     occupation: chosenOccupation.name,
     capability: chosenOccupation.capability,
     eyes: randomItem(eyes),
@@ -670,6 +671,8 @@ function generateRandomCharacter(): Record<string, string> {
 }
 
 export {
+    firstNames,
+    surnames,
   occupation,
   eyes,
   build,
