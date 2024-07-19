@@ -1,10 +1,11 @@
 <script lang="ts">
+	import Randomizer from './lib/Randomizer.svelte';
 	import Attr from './lib/Attr.svelte';
 	import { getRandomCompetitor, getRandomMotivation, getRandomReaction } from './lib/competitor-gen';
 	import { getRandomNpc } from './lib/npc-gen';
 	import type { Npc } from './lib/npc-gen';
 	import type { Motivation } from './lib/competitor-gen';
-	import { getRandomHostLook, getRandomHostLines } from './lib/production-gen';
+	import { getRandomHostLook, getRandomHostLines, getRandomExternalSignage, getRandomInternalSignage, getRandomFlashbackDetails } from './lib/production-gen';
 	import Card from './lib/Card.svelte';
 	import Header from './lib/Header.svelte';
 	import DiceSvg from './lib/DiceSvg.svelte';
@@ -55,15 +56,8 @@
 			</Card>
 			<button type="button" class="primary" on:click={generateNewCompetitor}><DiceSvg color="black" /> New Lucky Competitor</button>
 		</div>
-		<div>
-			<h2>Opponent</h2>
-			<Card>
-				<Attr label="Name" value={npc?.name} />
-				<Attr label="Trait" value={npc?.trait} />
-				<Attr label="Trait" value={npc?.trait2} />
-			</Card>
-			<button type="button" class="primary" on:click={() => (npc = getRandomNpc())}><DiceSvg color="black" /> New Opponent</button>
-		</div>
+		<div><Randomizer func={getRandomNpc} title="Opponent" /></div>
+		<div><Randomizer func={getRandomInternalSignage} title="Signage" /></div>
 		<div>
 			<h2>Host</h2>
 			<Card>
