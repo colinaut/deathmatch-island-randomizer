@@ -5,10 +5,13 @@
 	import { getRandomNpc } from './lib/npc-gen';
 	import type { Npc } from './lib/npc-gen';
 	import type { Motivation } from './lib/competitor-gen';
+	import { getRandomInjury } from './lib/injuries-gen';
 	import { getRandomHostLook, getRandomHostLines, getRandomExternalSignage, getRandomInternalSignage, getRandomFlashbackDetails } from './lib/production-gen';
 	import Card from './lib/Card.svelte';
 	import Header from './lib/Header.svelte';
 	import DiceSvg from './lib/DiceSvg.svelte';
+	import { getRandomRedactedItem } from './lib/redacted-gen';
+	import Redacted from './lib/Redacted.svelte';
 
 	let competitor = getRandomCompetitor();
 	let reaction = '';
@@ -56,18 +59,33 @@
 			</Card>
 			<button type="button" class="primary" on:click={generateNewCompetitor}><DiceSvg color="black" /> New Lucky Competitor</button>
 		</div>
-		<div><Randomizer func={getRandomNpc} title="Opponent" /></div>
-		<div><Randomizer func={getRandomInternalSignage} title="Signage" /></div>
 		<div>
-			<h2>Host</h2>
-			<Card>
-				<Attr label="Look" value={hostLook} />
-				<Attr label="Line" value={hostLines} />
-			</Card>
-			<div class="flex gap-2">
-				<button type="button" class="primary" on:click={() => (hostLook = getRandomHostLook())}><DiceSvg color="black" /> New Look</button>
-				<button type="button" class="primary" on:click={() => (hostLines = getRandomHostLines())}><DiceSvg color="black" /> New Line</button>
-			</div>
+			<Randomizer func={getRandomInjury} title="Notable Injury" />
+		</div>
+		<div>
+			<Randomizer func={getRandomNpc} title="Opponent" />
+			<Randomizer func={getRandomInternalSignage} title="Competitor Comms" description="posters, billboards, and pre-recorded messages found throughout the island" />
+		</div>
+
+		<div>
+			<Redacted>
+				<h2>Host</h2>
+				<Card>
+					<Attr label="Look" value={hostLook} />
+					<Attr label="Line" value={hostLines} />
+				</Card>
+				<div class="flex gap-2">
+					<button type="button" class="primary" on:click={() => (hostLook = getRandomHostLook())}><DiceSvg color="black" /> New Look</button>
+					<button type="button" class="primary" on:click={() => (hostLines = getRandomHostLines())}><DiceSvg color="black" /> New Line</button>
+				</div>
+				<Randomizer func={getRandomFlashbackDetails} title="Flashback Detail" />
+			</Redacted>
+		</div>
+		<div>
+			<Redacted>
+				<Randomizer func={getRandomExternalSignage} title="Restricted Comms" description="posters, signage, and pre-recorded messages found in restricted areas" />
+				<Randomizer func={getRandomRedactedItem} title="Redacted Item" />
+			</Redacted>
 		</div>
 	</main>
 </div>

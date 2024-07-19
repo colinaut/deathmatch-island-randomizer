@@ -7,11 +7,16 @@
 		return {};
 	};
 	export let title = '';
+	export let description = '';
 
 	let attrs: Record<string, any> | string = func();
 </script>
 
 <h2>{title}</h2>
+{#if description}
+	<!-- content here -->
+	<p>{description}</p>
+{/if}
 <Card>
 	{#if typeof attrs === 'string'}
 		<!-- content here -->
@@ -24,3 +29,13 @@
 	{/if}
 </Card>
 <button type="button" class="primary" on:click={() => (attrs = func())}><DiceSvg color="black" /> New {title}</button>
+
+<style>
+	h2 {
+		margin-block-end: 0;
+	}
+	p {
+		margin-block: 0;
+		font-size: 0.85em;
+	}
+</style>
