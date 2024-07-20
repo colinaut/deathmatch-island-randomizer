@@ -19,6 +19,9 @@ devDependencies:
   '@tsconfig/svelte':
     specifier: ^5.0.4
     version: 5.0.4
+  '@types/lodash.isobject':
+    specifier: ^3.0.9
+    version: 3.0.9
   svelte:
     specifier: ^4.2.18
     version: 4.2.18
@@ -536,6 +539,16 @@ packages:
 
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
+    dev: true
+
+  /@types/lodash.isobject@3.0.9:
+    resolution: {integrity: sha512-eVsQuAMn8SyrD11SIv2P9ke4j+6kGs5JAQsIFhIw7iIiHfIzKWVEL6ZVSmXfJC4naO/GoZKJW+gC2vAtVjCa8Q==}
+    dependencies:
+      '@types/lodash': 4.17.7
+    dev: true
+
+  /@types/lodash@4.17.7:
+    resolution: {integrity: sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==}
     dev: true
 
   /@types/pug@2.0.10:

@@ -51,12 +51,14 @@ button {
 	font-family: inherit;
 	background-color: #e5e5e5;
 	cursor: pointer;
-	transition: border-color 0.25s;
+	transition: background-color 0.25s;
 }
 button.plain {
 	background: none;
 	border: none;
+	padding: 0.25em;
 }
+
 button.outline {
 	border-color: var(--gray-dark);
 	background-color: transparent;
@@ -79,6 +81,7 @@ button:has(svg) {
 }
 button:hover {
 	border-color: #b6b8d0;
+	background-color: var(--primary);
 }
 button:focus,
 button:focus-visible {

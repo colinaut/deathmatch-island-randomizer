@@ -3,14 +3,22 @@
 	export let label = '';
 </script>
 
-<div><strong>{label}</strong> <span>{value}</span></div>
+<div>
+	{#if label}
+		<!-- content here -->
+		<strong>{label}</strong>
+	{/if}
+	<span>{value}</span>
+</div>
 
 <style>
 	div {
-		display: grid;
-		grid-template-columns: 1fr 2fr;
-		gap: 1rem;
-		align-items: start;
 		line-height: 1.2;
+	}
+	div:has(strong) {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: 1fr 2fr;
+		align-items: start;
 	}
 </style>
