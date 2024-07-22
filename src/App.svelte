@@ -44,6 +44,9 @@
 		</div>
 	</Redacted>
 </main>
+<footer>
+	<a href="https://www.deathmatchis.land/">Deathmatch Island</a> is copyright of <a href="http://olddog.games/">Tim Denee</a> and <a href="https://evilhat.com/">Evil Hat Productions</a>
+</footer>
 
 <style>
 	.container {
@@ -58,5 +61,17 @@
 		grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
 		gap: 0 2rem;
 		margin: 0 auto 2rem;
+	}
+	footer {
+		padding: 1rem;
+		text-align: center;
+		background-color: var(--primary);
+	}
+	footer a {
+		color: black;
+		font-size: 0.9em;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 </style>
