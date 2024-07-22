@@ -1,37 +1,21 @@
 <script lang="ts">
 	import Randomizer from './lib/Randomizer.svelte';
-	import Attr from './lib/Attr.svelte';
 	import { getRandomCompetitor, getRandomMotivation, getRandomReaction } from './lib/competitor-gen';
 	import { getRandomNpc } from './lib/npc-gen';
-	import type { Npc } from './lib/npc-gen';
-	import type { Motivation } from './lib/competitor-gen';
 	import { getRandomInjury } from './lib/injuries-gen';
 	import { getRandomHostLook, getRandomHostLines, getRandomExternalSignage, getRandomInternalSignage, getRandomFlashbackDetails } from './lib/production-gen';
-	import Card from './lib/Card.svelte';
 	import Header from './lib/Header.svelte';
 	import DiceSvg from './lib/DiceSvg.svelte';
 	import { getRandomRedactedItem } from './lib/redacted-gen';
 	import Redacted from './lib/Redacted.svelte';
-
-	let competitor = getRandomCompetitor();
-	let reaction = '';
-	let motivation!: Motivation;
-	let npc: Npc = getRandomNpc();
-	let hostLook = getRandomHostLook();
-	let hostLines = getRandomHostLines();
-
-	function generateNewCompetitor() {
-		competitor = getRandomCompetitor();
-		reaction = '';
-		motivation = {};
-	}
 </script>
 
 <Header />
-<div class="container">
-	<main>
+
+<main>
+	<div class="main-grid container">
 		<div>
-			<Randomizer func={getRandomCompetitor} title="Competitor" />
+			<Randomizer func={getRandomCompetitor} title="Competitor" autoRoll={true} />
 		</div>
 		<div>
 			<Randomizer func={getRandomReaction} title="Initial Reaction" />
@@ -41,27 +25,25 @@
 		<div>
 			<Randomizer func={getRandomInjury} title="Notable Injury" />
 		</div>
-		<div>
-			<Randomizer func={getRandomNpc} title="Opponent" />
-			<Randomizer func={getRandomInternalSignage} title="Competitor Comms" />
-		</div>
-
-		<div>
-			<Redacted>
+	</div>
+	<Redacted>
+		<div class="main-grid container">
+			<div>
+				<Randomizer func={getRandomNpc} title="Opponent" />
+				<Randomizer func={getRandomFlashbackDetails} title="Flashback Detail" />
+			</div>
+			<div>
 				<Randomizer func={getRandomHostLook} title="Host Look" />
 				<Randomizer func={getRandomHostLines} title="Host Line" />
-				<Randomizer func={getRandomFlashbackDetails} title="Flashback Detail" />
-			</Redacted>
-		</div>
-		<div>
-			<Redacted>
+			</div>
+			<div>
+				<Randomizer func={getRandomInternalSignage} title="Competitor Comms" />
 				<Randomizer func={getRandomExternalSignage} title="Restricted Comms" />
-
 				<Randomizer func={getRandomRedactedItem} title="Redacted Item" />
-			</Redacted>
+			</div>
 		</div>
-	</main>
-</div>
+	</Redacted>
+</main>
 
 <style>
 	.container {
@@ -69,10 +51,12 @@
 		container-type: inline-size;
 	}
 	main {
+		margin: 0 auto;
+	}
+	.main-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
-		gap: 2rem;
-		/* justify-items: center; */
-		margin: 0 auto;
+		gap: 0 2rem;
+		margin: 0 auto 2rem;
 	}
 </style>
