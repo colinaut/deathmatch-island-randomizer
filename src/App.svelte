@@ -60,6 +60,7 @@
 			<button type="button" class="primary" on:click={generateNewCompetitor}><DiceSvg color="black" /> New Lucky Competitor</button>
 		</div>
 		<div>
+			<!-- TODO: Add ice breaker questions -->
 			<Randomizer func={getRandomInjury} title="Notable Injury" />
 		</div>
 		<div>

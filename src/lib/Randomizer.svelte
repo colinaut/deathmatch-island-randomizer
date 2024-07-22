@@ -20,6 +20,7 @@
 	<!-- content here -->
 	<p>{description}</p>
 {/if}
+<!-- TODO: move Card out of Randomizer -->
 <Card>
 	{#if attrs !== undefined}
 		<div>
