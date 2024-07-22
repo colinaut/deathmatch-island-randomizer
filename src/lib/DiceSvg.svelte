@@ -1,5 +1,5 @@
 <script>
-	export let color = 'var(--primary)';
+	export let color = 'inherit';
 </script>
 
 <!-- dice-six icon by Free Icons (https://free-icons.github.io/free-icons/) -->

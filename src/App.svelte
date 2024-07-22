@@ -31,60 +31,32 @@
 <div class="container">
 	<main>
 		<div>
-			<h2>Competitor Lotto</h2>
-			<Card>
-				<Attr label="Name" value={competitor.name} />
-				<Attr label="Occupation" value={competitor.occupation} />
-				<Attr label="Capability" value={competitor.capability} />
-				<Attr label="Eyes" value={competitor.eyes} />
-				<Attr label="Build" value={competitor.build} />
-				<Attr label="Hair" value={competitor.hair} />
-				<Attr label="Detail" value={competitor.detail} />
-				<div class="subcard">
-					<h3>Initial Reaction</h3>
-					{#if reaction}
-						<p>{reaction}</p>
-					{:else}
-						<button type="button" class="outline" on:click={() => (reaction = getRandomReaction())}><DiceSvg /> Pick For Me</button>
-					{/if}
-				</div>
-				<div class="subcard motivation">
-					<h3>Motivation</h3>
-					{#if motivation?.type}
-						<p><strong>{motivation.type}</strong> {motivation.description}</p>
-					{:else}
-						<button type="button" class="outline" on:click={() => (motivation = getRandomMotivation())}><DiceSvg /> Pick For Me</button>
-					{/if}
-				</div>
-			</Card>
-			<button type="button" class="primary" on:click={generateNewCompetitor}><DiceSvg color="black" /> New Lucky Competitor</button>
+			<Randomizer func={getRandomCompetitor} title="Competitor" />
 		</div>
 		<div>
+			<Randomizer func={getRandomReaction} title="Initial Reaction" />
+			<Randomizer func={getRandomMotivation} title="Motivation" />
 			<!-- TODO: Add ice breaker questions -->
+		</div>
+		<div>
 			<Randomizer func={getRandomInjury} title="Notable Injury" />
 		</div>
 		<div>
 			<Randomizer func={getRandomNpc} title="Opponent" />
-			<Randomizer func={getRandomInternalSignage} title="Competitor Comms" description="posters, billboards, and pre-recorded messages found throughout the island" />
+			<Randomizer func={getRandomInternalSignage} title="Competitor Comms" />
 		</div>
 
 		<div>
 			<Redacted>
-				<h2>Host</h2>
-				<Card>
-					<Attr label="Look" value={hostLook} />
-					<Attr label="Line" value={hostLines} />
-				</Card>
-				<div class="flex gap-2">
-					<button type="button" class="primary" on:click={() => (hostLook = getRandomHostLook())}><DiceSvg color="black" /> New Look</button>
-					<button type="button" class="primary" on:click={() => (hostLines = getRandomHostLines())}><DiceSvg color="black" /> New Line</button>
-				</div>
+				<Randomizer func={getRandomHostLook} title="Host Look" />
+				<Randomizer func={getRandomHostLines} title="Host Line" />
 				<Randomizer func={getRandomFlashbackDetails} title="Flashback Detail" />
 			</Redacted>
 		</div>
 		<div>
 			<Redacted>
-				<Randomizer func={getRandomExternalSignage} title="Restricted Comms" description="posters, signage, and pre-recorded messages found in restricted areas" />
+				<Randomizer func={getRandomExternalSignage} title="Restricted Comms" />
+
 				<Randomizer func={getRandomRedactedItem} title="Redacted Item" />
 			</Redacted>
 		</div>
@@ -100,18 +72,7 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
 		gap: 2rem;
-		justify-items: center;
+		/* justify-items: center; */
 		margin: 0 auto;
-	}
-	.subcard h3 {
-		margin-block-end: 0.5em;
-		font-size: 1em;
-	}
-	.subcard p {
-		margin: 0;
-		font-size: 0.9em;
-	}
-	.motivation strong::after {
-		content: '.';
 	}
 </style>
