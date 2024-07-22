@@ -45,7 +45,10 @@
 	</Redacted>
 </main>
 <footer>
-	<a href="https://www.deathmatchis.land/">Deathmatch Island</a> is copyright of <a href="http://olddog.games/">Tim Denee</a> and <a href="https://evilhat.com/">Evil Hat Productions</a>
+	<p>Production Arbitrator made by <a href="https://www.mirthpeddlers.com/">Colin Fahrion</a></p>
+	<p>
+		<a href="https://www.deathmatchis.land/">Deathmatch Island</a> is copyright of <a href="http://olddog.games/">Tim Denee</a> and <a href="https://evilhat.com/">Evil Hat Productions</a>
+	</p>
 </footer>
 
 <style>
@@ -73,5 +76,8 @@
 		&:hover {
 			text-decoration: underline;
 		}
+	}
+	footer p {
+		margin-block: 0.5rem;
 	}
 </style>
