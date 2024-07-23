@@ -64,11 +64,13 @@ h2 button {
 	border-radius: 0;
 	background: none;
 	border: 0;
-	&:hover {
-		background: none;
-		border: 0;
-		color: var(--primary);
-	}
+	color: #000;
+}
+
+h2 button:hover {
+	background: none;
+	border: 0;
+	color: var(--primary);
 }
 button.outline {
 	border-color: var(--gray-dark);
