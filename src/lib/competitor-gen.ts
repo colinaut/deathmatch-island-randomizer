@@ -170,7 +170,7 @@ const occupation = [
 	{ name: 'Pastor', capability: 'Social Game' },
 	{ name: 'Piano Teacher', capability: 'Challenge Beast' },
 	{ name: 'Prisoner', capability: 'Deathmatch' },
-	{ name: 'Project Manager', capability: '' },
+	{ name: 'Project Manager', capability: 'Social Game' },
 	{ name: 'Property Developer', capability: 'Snake Mode' },
 	{ name: 'Retired Nurse', capability: 'Social Game' },
 	{ name: 'Roofer', capability: 'Challenge Beast' },
