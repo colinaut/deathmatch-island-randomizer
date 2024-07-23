@@ -37,8 +37,8 @@
 				<Randomizer func={getRandomHostLines} title="Host Line" />
 			</div>
 			<div>
-				<Randomizer func={getRandomInternalSignage} title="Competitor Comms" />
-				<Randomizer func={getRandomExternalSignage} title="Restricted Comms" />
+				<Randomizer func={getRandomExternalSignage} title="Competitor Comms" />
+				<Randomizer func={getRandomInternalSignage} title="Restricted Comms" />
 				<Randomizer func={getRandomRedactedItem} title="Redacted Item" />
 			</div>
 		</div>
