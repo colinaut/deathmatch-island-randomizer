@@ -61,9 +61,14 @@
 	}
 	.main-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+		grid-template-columns: 1fr;
 		gap: 0 2rem;
 		margin: 0 auto 2rem;
+	}
+	@media (min-width: 768px) {
+		.main-grid {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
 	}
 	footer {
 		padding: 1rem;
