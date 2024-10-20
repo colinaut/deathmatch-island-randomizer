@@ -8,7 +8,7 @@ const occupation = [
 	{ name: 'Astronaut', capability: 'Challenge Beast' },
 	{ name: 'Black Ops Soldier', capability: 'Deathmatch' },
 	{ name: 'Actor', capability: 'Social Game' },
-	{ name: 'Armored Car', capability: 'Guard' },
+	{ name: 'Armored Car Guard', capability: 'Deathmatch' },
 	{ name: 'Deathmatch', capability: 'Attorney' },
 	{ name: 'Bodybuilder', capability: 'Challenge Beast' },
 	{ name: 'Ad Executive', capability: 'Snake Mode' },

@@ -15,7 +15,7 @@
 <main>
 	<div class="main-grid container">
 		<div>
-			<Randomizer func={getRandomCompetitor} title="Competitor" autoRoll={true} />
+			<Randomizer func={getRandomCompetitor} title="Competitor"  />
 		</div>
 		<div>
 			<Randomizer func={getRandomReaction} title="Initial Reaction" />
