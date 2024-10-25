@@ -92,9 +92,10 @@
 		color: #fff;
 		font-weight: 700;
 		display: block;
+		font-size: 1.2em;
 	}
 	.hint {
-		font-size: 0.8em;
+		font-size: 1em;
 		margin-block-end: 0.25em;
 	}
 	input {
