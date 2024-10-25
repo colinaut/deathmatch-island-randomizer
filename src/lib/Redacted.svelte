@@ -4,6 +4,7 @@
 	let showHint = false;
 	let showHint2 = false;
 	let showAnswer = false;
+	let fillInPassword = false;
 	import { slide, fade } from 'svelte/transition';
 
 	function submitPassword(e: Event) {
@@ -16,8 +17,10 @@
 			showHint = true;
 		} else if (showHint2 === false) {
 			showHint2 = true;
-		} else {
+		} else if (showAnswer === false) {
 			showAnswer = true;
+		} else {
+			fillInPassword = true;
 		}
 	}
 </script>
@@ -43,7 +46,12 @@
 							<div transition:slide class="hint italic">Ugh, fine it's: 'P14Y 70 W1N'</div>
 							<!-- content here -->
 						{/if}
-						<input type="text" id="password" />
+						{#if fillInPassword}
+							<div transition:slide class="hint italic">Wow lazy too?! Let me fill it in for you.</div>
+							<input type="text" id="password" value="P14Y 70 W1N" />
+						{:else}
+							<input type="text" id="password" />
+						{/if}
 					</div>
 					<button type="submit">LOGIN</button>
 				</form>
