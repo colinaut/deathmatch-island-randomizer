@@ -6,22 +6,31 @@
 
 	const isObject = (obj: unknown) => obj === Object(obj);
 
-	export let func: () => Record<string, string> | string | Array<string> = () => {
-		return {};
-	};
-	export let title = '';
-	export let description = '';
-	export let attrs: Record<string, string> | string | Array<string> | undefined = undefined;
-	export let autoRoll = false;
+	let {
+		func = () => {
+			return {};
+		},
+		title = '',
+		description = '',
+		attrs = undefined,
+		autoRoll = false
+	}: {
+		func: () => Record<string, string> | string | Array<string> | undefined;
+		title: string;
+		description?: string;
+		attrs?: Record<string, string> | string | Array<string> | undefined;
+		autoRoll?: boolean;
+	} = $props();
+
 	if (autoRoll) attrs = func();
 </script>
 
 {#if title}
 	<!-- content here -->
 	<h2>
-		<button type="button" on:click={() => (attrs = func())}><DiceSvg /> {title}</button>
+		<button type="button" onclick={() => (attrs = func())}><DiceSvg /> {title}</button>
 		{#if attrs !== undefined}
-			<button class="reset" type="button" on:click={() => (attrs = undefined)}
+			<button class="reset" type="button" onclick={() => (attrs = undefined)}
 				><!-- xmark icon by Free Icons (https://free-icons.github.io/free-icons/) -->
 				<svg xmlns="http://www.w3.org/2000/svg" height="0.8em" fill="currentColor" viewBox="0 0 512 512">
 					<title>Reset</title>

@@ -1,10 +1,12 @@
 <script lang="ts">
-	export let hidden = true;
-	let showPassword = false;
-	let showHint = false;
-	let showHint2 = false;
-	let showAnswer = false;
-	let fillInPassword = false;
+	import type { Snippet } from 'svelte';
+	let { hidden = true, children }: { hidden?: boolean; children?: Snippet } = $props();
+
+	let showPassword = $state(false);
+	let showHint = $state(false);
+	let showHint2 = $state(false);
+	let showAnswer = $state(false);
+	let fillInPassword = $state(false);
 	import { slide, fade } from 'svelte/transition';
 
 	function submitPassword(e: Event) {
@@ -26,12 +28,12 @@
 </script>
 
 <div class="wrapper">
-	<slot></slot>
+	{@render children?.()}
 	{#if hidden}
 		<div class="cover">
 			{#if showPassword}
 				<!-- content here -->
-				<form on:submit={submitPassword} transition:fade>
+				<form onsubmit={submitPassword} transition:fade>
 					<div>
 						<label for="password">Enter Production Password</label>
 						{#if showHint}
@@ -56,13 +58,11 @@
 					<button type="submit">LOGIN</button>
 				</form>
 			{:else}
-				<button type="button" on:click={() => (showPassword = !showPassword)}>PRODUCTION ONLY</button>
+				<button type="button" onclick={() => (showPassword = !showPassword)}>PRODUCTION ONLY</button>
 			{/if}
 		</div>
 	{/if}
 </div>
-
-<!-- TODO: add password to reveal -->
 
 <style>
 	.cover {

@@ -1,5 +1,5 @@
-<script>
-	export let color = 'inherit';
+<script lang="ts">
+	let { color = 'inherit' }: { color?: string } = $props();
 </script>
 
 <!-- dice-six icon by Free Icons (https://free-icons.github.io/free-icons/) -->
